@@ -55,9 +55,6 @@ protected:
     int32_t _seconds;
 };
 
-// RTC based on the DS1307 chip connected via I2C and the Wire library
-enum Ds1307SqwPinMode{ { OFF = 0x00, ON = 0x80, SquareWave1HZ = 0x10, SquareWave4kHz = 0x11, SquareWave8kHz = 0x12, SquareWave32kHz = 0x13 };
-};
 
 class RTC_DS1307 {
 public:
@@ -65,8 +62,6 @@ public:
     static void adjust(const DateTime& dt);
     uint8_t isrunning(void);
     static DateTime now();
-    static Ds1307SqwPinMode readSqwPinMode();
-    static void writeSqwPinMode(Ds1307SqwPinMode mode);
     uint8_t readnvram(uint8_t address);
     void readnvram(uint8_t* buf, uint8_t size, uint8_t address);
     void writenvram(uint8_t address, uint8_t data);
